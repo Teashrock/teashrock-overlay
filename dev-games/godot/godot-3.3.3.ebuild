@@ -241,29 +241,16 @@ src_compile() {
 }
 
 src_install() {
+	local godot_binary="${PN}.x11.opt.tools.${BITS}${LLVMBOOL}"
 	newicon icon.svg ${PN}.svg
-	dobin bin/godot.*
-	if [[ "${ARCH}" == "amd64" ]]; then
-		if use llvm; then
-			make_desktop_entry godot.x11.opt.tools.64.llvm Godot
-			with_desktop_entry=1
-		else
-			make_desktop_entry godot.x11.opt.tools.64 Godot
-			with_desktop_entry=1
-		fi
-	fi
-
-	if [[ "${ARCH}" == "x86" ]]; then
-		if use llvm; then
-			make_desktop_entry godot.x11.opt.tools.32.llvm Godot
-			with_desktop_entry=1
-		else
-			make_desktop_entry godot.x11.opt.tools.32 Godot
-			with_desktop_entry=1
-		fi
-	fi
-
-	if ! [[ "${with_desktop_entry}" == "1" ]]; then
-		elog "Couldn't detect running architecture to create a desktop file."
-	fi
+	#dobin bin/godot.*
+	newbin bin/${godot_binary} ${PN}
+	newicon icon.svg ${PN}.svg
+	doman misc/dist/linux/${PN}.6
+	domenu misc/dist/linux/org.godotengine.Godot.desktop
+	insinto /usr/share/metainfo
+	doins misc/dist/linux/org.godotengine.Godot.appdata.xml
+	insinto /usr/share/mime/application
+	doins misc/dist/linux/org.godotengine.Godot.xml
+	dodoc AUTHORS.md CHANGELOG.md DONORS.md README.md
 }
