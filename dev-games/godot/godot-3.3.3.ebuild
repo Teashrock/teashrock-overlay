@@ -191,6 +191,7 @@ src_configure() {
 }
 
 src_compile() {
+	cd ${WORKDIR}
 	escons "${MYSCONS[@]}"
 	if use mono; then
 		${WORKDIR}/bin/godot.x11.opt.tools.64 --generate-mono-glue ${WORKDIR}/modules/mono/glue
