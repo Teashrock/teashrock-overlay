@@ -123,6 +123,7 @@ src_configure() {
 		CXX="$(tc-getCXX)"
 		builtin_bullet=$(usex static-libs $(usex bullet) no)
 		builtin_enet=$(usex static-libs $(usex enet) no)
+		builtin_freetype=$(usex static-libs yes no)
 		builtin_libogg=$(usex static-libs $(usex ogg) no)
 		builtin_libpng=$(usex static-libs $(usex png) no)
 		builtin_libtheora=$(usex static-libs $(usex theora) no)
@@ -145,7 +146,7 @@ src_configure() {
 		module_pcre2_enabled=$(usex static-libs no $(usex pcre2))
 		module_zlib_enabled=$(usex static-libs no $(usex zlib))
 		module_zstd_enabled=$(usex static-libs no $(usex zstd))
-		module_freetype_enabled=$(usex static-libs no $(usex freetype))
+		module_freetype_enabled=$(usex static-libs no yes)
 		module_mbedtls_enabled=$(usex static-libs no $(usex mbedtls))
 		module_mono_enabled=$(usex static-libs no $(usex mono))
 		mono_glue=no
