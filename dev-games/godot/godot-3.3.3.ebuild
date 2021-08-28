@@ -27,6 +27,7 @@ IUSE="
 	bullet
 	debug
 	+enet
+	+embree
 	+freetype
 	llvm
 	lto
