@@ -56,6 +56,7 @@ DEPEND="
 	>=dev-libs/json-c-0.11-r1
 	dev-libs/libpcre2[pcre32]
 	>=media-libs/alsa-lib-1.0.28
+	media-libs/embree:3
 	>=media-libs/flac-1.3.1-r1
 	freetype? ( >=media-libs/freetype-2.5.3-r1:2 )
 	>=media-libs/libogg-1.3.1
@@ -101,6 +102,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	>=dev-util/scons-0.98.1
 	yasm? ( >=dev-lang/yasm-1.3.0-r1 )
+	virtual/pkgconfig
 	"
 
 pkg_setup() {
