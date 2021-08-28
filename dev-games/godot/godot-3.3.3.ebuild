@@ -107,7 +107,7 @@ pkg_setup() {
 src_prepare() {
 	default
 	if ! use static-libs; then
-		rm -r thirdparty/{$(usex bullet bullet ),$(usex embree embree ),$(usex enet enet ),$(usex freetype freetype ),$(usex ogg libogg ),$(usex png libpng ),$(usex theora libtheora ),$(usex vorbis libvorbis ),$(usex vpx libvpx ),$(usex webp libwebp),$(usex mbedtls mbedtls ),$(usex upnp miniupnpc),$(usex opus opus ),$(usex pcre2 pcre2 ),$(usex zstd zstd )} || die
+		rm -r thirdparty/{bullet,embree,enet,freetype,libogg,libpng,libtheora,libvorbis,libvpx,libwebp,mbedtls,miniupnpc,opus,pcre2,zstd} || die
 	fi
 }
 
