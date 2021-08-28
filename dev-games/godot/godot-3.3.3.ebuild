@@ -191,12 +191,12 @@ src_configure() {
 }
 
 src_compile() {
-	cd ${S}/
+	#cd ${S}/
 	escons "${MYSCONS[@]}"
-	if use mono; then
-		${S}/bin/godot.x11.opt.tools.64 --generate-mono-glue ${S}/modules/mono/glue
-		escons "${MONOSCONS[@]}"
-	fi
+	#if use mono; then
+	#	${S}/bin/godot.x11.opt.tools.64 --generate-mono-glue ${S}/modules/mono/glue
+	#	escons "${MONOSCONS[@]}"
+	#fi
 }
 
 src_install() {
