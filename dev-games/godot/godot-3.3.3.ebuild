@@ -99,6 +99,10 @@ BDEPEND="
 	virtual/pkgconfig
 	"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-llvm-build.patch
+)
+
 pkg_setup() {
 	python-any-r1_pkg_setup
 	llvm_pkg_setup
@@ -120,9 +124,11 @@ src_configure() {
 
 	strip-unsupported-flags
 
-	MYSCONS=(
+	nomono=(
 		CC="$(tc-getCC)"
 		CXX="$(tc-getCXX)"
+		AR="$(tc-getAR)"
+		RANLIB="$(tc-getRANLIB)"
 		builtin_bullet=$(usex static-libs $(usex bullet) no)
 		builtin_enet=$(usex static-libs $(usex enet) no)
 		builtin_embree=$(usex static-libs $(usex embree) no)
@@ -140,7 +146,7 @@ src_configure() {
 		builtin_zstd=$(usex static-libs $(usex zstd) no)
 		module_bullet_enabled=$(usex static-libs no $(usex bullet))
 		module_enet_enabled=$(usex static-libs no $(usex enet))
-		module_embree_enabled=$(usex static-libs no $(usex embree))
+		#module_embree_enabled=$(usex static-libs no $(usex embree))
 		module_ogg_enabled=$(usex static-libs no $(usex ogg))
 		module_png_enabled=$(usex static-libs no $(usex png))
 		module_vpx_enabled=$(usex static-libs no $(usex vpx))
@@ -169,7 +175,7 @@ src_configure() {
 		target=$(usex debug debug release_debug)
 	)
 
-	MONOSCONS=(
+	withmono=(
 		CC="$(tc-getCC)"
 		CXX="$(tc-getCXX)"
 		builtin_bullet=$(usex static-libs $(usex bullet) no)
@@ -223,7 +229,7 @@ src_configure() {
 }
 
 src_compile() {
-	escons "${MYSCONS[@]}"
+	escons "${nomono[@]}"
 	if use mono; then
 		if [[ "${ARCH}" == "amd64" ]]; then
 			BITS=64
@@ -238,7 +244,7 @@ src_compile() {
 		fi
 		bin/godot.x11.opt.tools.${BITS}${LLVMBOOL} --generate-mono-glue modules/mono/glue
 		rm -rvf bin/* || die
-		escons "${MONOSCONS[@]}"
+		escons "${withmono[@]}"
 	fi
 }
 
