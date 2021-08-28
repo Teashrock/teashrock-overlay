@@ -125,6 +125,7 @@ src_configure() {
 		CXX="$(tc-getCXX)"
 		builtin_bullet=$(usex static-libs $(usex bullet) no)
 		builtin_enet=$(usex static-libs $(usex enet) no)
+		builtin_embree=$(usex static-libs $(usex embree) no)
 		builtin_libogg=$(usex static-libs $(usex ogg) no)
 		builtin_libpng=$(usex static-libs $(usex png) no)
 		builtin_libtheora=$(usex static-libs $(usex theora) no)
@@ -139,6 +140,7 @@ src_configure() {
 		builtin_zstd=$(usex static-libs $(usex zstd) no)
 		module_bullet_enabled=$(usex static-libs no $(usex bullet))
 		module_enet_enabled=$(usex static-libs no $(usex enet))
+		module_embree_enabled=$(usex static-libs no $(usex embree))
 		module_ogg_enabled=$(usex static-libs no $(usex ogg))
 		module_png_enabled=$(usex static-libs no $(usex png))
 		module_vpx_enabled=$(usex static-libs no $(usex vpx))
@@ -171,6 +173,7 @@ src_configure() {
 		CXX="$(tc-getCXX)"
 		builtin_bullet=$(usex static-libs $(usex bullet) no)
 		builtin_enet=$(usex static-libs $(usex enet) no)
+		builtin_embree=$(usex static-libs $(usex embree) no)
 		builtin_libogg=$(usex static-libs $(usex ogg) no)
 		builtin_libpng=$(usex static-libs $(usex png) no)
 		builtin_libtheora=$(usex static-libs $(usex theora) no)
@@ -188,6 +191,7 @@ src_configure() {
 		builtin_zstd=$(usex static-libs $(usex zstd) no)
 		module_bullet_enabled=$(usex static-libs no $(usex bullet))
 		module_enet_enabled=$(usex static-libs no $(usex enet))
+		module_embree_enabled=$(usex static-libs no $(usex embree))
 		module_ogg_enabled=$(usex static-libs no $(usex ogg))
 		module_png_enabled=$(usex static-libs no $(usex png))
 		module_vpx_enabled=$(usex static-libs no $(usex vpx))
