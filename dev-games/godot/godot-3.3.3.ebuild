@@ -106,7 +106,7 @@ pkg_setup() {
 
 src_prepare() {
 	default
-	rm -r thirdparty/{$(usex bullet bullet ),$(usex embree embree ),$(usex enet enet ),$(usex freetype freetype ),$(usex libogg libogg ),$(usex libpng libpng ),$(usex libtheora libtheora ),$(usex libvorbis libvorbis ),$(usex libvpx libvpx ),$(usex libwebp libwebp),$(usex mbedtls mbedtls ),$(usex miniupnpc miniupnpc),$(usex opus opus ),$(usex pcre2 pcre2 ),$(usex zstd zstd )} || die
+	rm -r thirdparty/{$(usex bullet bullet ),$(usex embree embree ),$(usex enet enet ),$(usex freetype freetype ),$(usex ogg libogg ),$(usex png libpng ),$(usex theora libtheora ),$(usex vorbis libvorbis ),$(usex vpx libvpx ),$(usex webp libwebp),$(usex mbedtls mbedtls ),$(usex upnp miniupnpc),$(usex opus opus ),$(usex pcre2 pcre2 ),$(usex zstd zstd )} || die
 }
 
 src_configure() {
@@ -130,7 +130,7 @@ src_configure() {
 		builtin_libvpx=$(usex static-libs $(usex vpx) no)
 		builtin_libwebp=$(usex static-libs $(usex webp) no)
 		builtin_mbedtls=$(usex static-libs $(usex mbedtls) no)
-		builtin_miniupnpc=$(usex static-libs $(usex miniupnpc) no)
+		builtin_miniupnpc=$(usex static-libs $(usex upnp) no)
 		builtin_opus=$(usex static-libs $(usex opus) no)
 		builtin_pcre2=$(usex static-libs $(usex pcre2) no)
 		builtin_zlib=$(usex static-libs $(usex zlib) no)
@@ -141,7 +141,7 @@ src_configure() {
 		module_png_enabled=$(usex static-libs no $(usex png))
 		module_vpx_enabled=$(usex static-libs no $(usex vpx))
 		module_mbedtls_enabled=$(usex static-libs no $(usex mbedtls))
-		module_miniupnpc=$(usex static-libs no $(usex miniupnpc))
+		module_miniupnpc=$(usex static-libs no $(usex upnp))
 		module_pcre2_enabled=$(usex static-libs no $(usex pcre2))
 		module_zlib_enabled=$(usex static-libs no $(usex zlib))
 		module_zstd_enabled=$(usex static-libs no $(usex zstd))
@@ -179,7 +179,7 @@ src_configure() {
 		builtin_libvpx=$(usex static-libs $(usex vpx) no)
 		builtin_libwebp=$(usex static-libs $(usex webp) no)
 		builtin_mbedtls=$(usex static-libs $(usex mbedtls) no)
-		builtin_miniupnpc=$(usex static-libs $(usex miniupnpc) no)
+		builtin_miniupnpc=$(usex static-libs $(usex upnp) no)
 		builtin_opus=$(usex static-libs $(usex opus) no)
 		builtin_pcre2=$(usex static-libs $(usex pcre2) no)
 		builtin_zlib=$(usex static-libs $(usex zlib) no)
@@ -190,7 +190,7 @@ src_configure() {
 		module_png_enabled=$(usex static-libs no $(usex png))
 		module_vpx_enabled=$(usex static-libs no $(usex vpx))
 		module_mbedtls_enabled=$(usex static-libs no $(usex mbedtls))
-		module_miniupnpc=$(usex static-libs no $(usex miniupnpc))
+		module_miniupnpc=$(usex static-libs no $(usex upnp))
 		module_pcre2_enabled=$(usex static-libs no $(usex pcre2))
 		module_zlib_enabled=$(usex static-libs no $(usex zlib))
 		module_zstd_enabled=$(usex static-libs no $(usex zstd))
