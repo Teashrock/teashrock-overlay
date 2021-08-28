@@ -160,6 +160,7 @@ src_configure() {
 		platform=$(usex X x11 server)
 		pulseaudio=$(usex pulseaudio)
 		tools=yes
+		progress=yes
 		verbose=false
 		udev=$(usex udev)
 		use_llvm=$(usex llvm)
@@ -211,6 +212,7 @@ src_configure() {
 		platform=$(usex X x11 server)
 		pulseaudio=$(usex pulseaudio)
 		tools=yes
+		progress=yes
 		verbose=false
 		udev=$(usex udev)
 		use_llvm=$(usex llvm)
