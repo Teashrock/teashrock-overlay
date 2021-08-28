@@ -106,7 +106,9 @@ pkg_setup() {
 
 src_prepare() {
 	default
-	rm -r thirdparty/{$(usex bullet bullet ),$(usex embree embree ),$(usex enet enet ),$(usex freetype freetype ),$(usex ogg libogg ),$(usex png libpng ),$(usex theora libtheora ),$(usex vorbis libvorbis ),$(usex vpx libvpx ),$(usex webp libwebp),$(usex mbedtls mbedtls ),$(usex upnp miniupnpc),$(usex opus opus ),$(usex pcre2 pcre2 ),$(usex zstd zstd )} || die
+	if ! use static-libs; then
+		rm -r thirdparty/{$(usex bullet bullet ),$(usex embree embree ),$(usex enet enet ),$(usex freetype freetype ),$(usex ogg libogg ),$(usex png libpng ),$(usex theora libtheora ),$(usex vorbis libvorbis ),$(usex vpx libvpx ),$(usex webp libwebp),$(usex mbedtls mbedtls ),$(usex upnp miniupnpc),$(usex opus opus ),$(usex pcre2 pcre2 ),$(usex zstd zstd )} || die
+	fi
 }
 
 src_configure() {
