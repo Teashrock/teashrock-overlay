@@ -237,7 +237,7 @@ src_compile() {
 		else
 			LLVMBOOL=""
 		fi
-		bin/godot.x11.opt.tools.${BITS}${LLVMBOOL} --generate-mono-glue modules/mono/glue
+		bin/godot.x11.opt.tools.${BITS}${LLVMBOOL} --no-window --generate-mono-glue modules/mono/glue
 		rm -rvf bin/* || die
 		escons "${withmono[@]}"
 	fi
