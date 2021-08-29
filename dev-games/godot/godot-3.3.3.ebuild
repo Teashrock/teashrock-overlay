@@ -46,8 +46,8 @@ IUSE="
 	+vorbis
 	+vpx
 	+webp
-	+yasm
 	+X
+	+yasm
 	+zlib
 	+zstd"
 
@@ -60,6 +60,10 @@ DEPEND="
 	media-libs/libpng:0=
 	media-libs/libvpx
 	media-libs/mesa[gles2]
+	opus? (
+		media-libs/opus
+		media-libs/opusfile
+	)
 	sys-libs/zlib
 	x11-libs/libX11
 	x11-libs/libXcursor
@@ -73,10 +77,6 @@ DEPEND="
 		freetype? ( media-libs/freetype:2 )
 		mbedtls? ( net-libs/mbedtls )
 		ogg? ( media-libs/libogg )
-		opus? (
-			media-libs/opus
-			media-libs/opusfile
-		)
 		pulseaudio? ( media-sound/pulseaudio )
 		theora? ( media-libs/libtheora )
 		udev? ( virtual/udev )
