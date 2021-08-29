@@ -56,6 +56,7 @@ DEPEND="
 	app-arch/zstd
 	dev-libs/libpcre2[pcre32]
 	media-libs/alsa-lib
+	media-libs/embree:3
 	media-libs/libpng:0=
 	media-libs/libvpx
 	media-libs/mesa[gles2]
@@ -67,7 +68,6 @@ DEPEND="
 	virtual/glu
 	virtual/opengl
 	!static-libs? (
-		media-libs/embree:3
 		bullet? ( >=sci-physics/bullet-2.89 )
 		enet? ( net-libs/enet:= )
 		freetype? ( media-libs/freetype:2 )
@@ -136,7 +136,7 @@ src_configure() {
 		builtin_libwebp=$(usex static-libs $(usex webp) no)
 		builtin_mbedtls=$(usex static-libs $(usex mbedtls) no)
 		builtin_miniupnpc=$(usex static-libs $(usex upnp) no)
-		builtin_opus=$(usex static-libs $(usex opus) no)
+		builtin_opus=no
 		builtin_pcre2=$(usex static-libs $(usex pcre2) no)
 		builtin_zlib=$(usex static-libs $(usex zlib) no)
 		builtin_zstd=$(usex static-libs $(usex zstd) no)
@@ -155,7 +155,7 @@ src_configure() {
 		module_mbedtls_enabled=$(usex static-libs no $(usex mbedtls))
 		module_mono_enabled=$(usex static-libs no $(usex mono))
 		mono_glue=no
-		module_opus_enabled=$(usex static-libs no $(usex opus))
+		#module_opus_enabled=$(usex static-libs no $(usex opus))
 		module_theora_enabled=$(usex static-libs no $(usex theora))
 		module_vorbis_enabled=$(usex static-libs no $(usex vorbis))
 		module_webp_enabled=$(usex static-libs no $(usex webp))
@@ -188,7 +188,7 @@ src_configure() {
 		builtin_libwebp=$(usex static-libs $(usex webp) no)
 		builtin_mbedtls=$(usex static-libs $(usex mbedtls) no)
 		builtin_miniupnpc=$(usex static-libs $(usex upnp) no)
-		builtin_opus=$(usex static-libs $(usex opus) no)
+		builtin_opus=no
 		builtin_pcre2=$(usex static-libs $(usex pcre2) no)
 		builtin_zlib=$(usex static-libs $(usex zlib) no)
 		builtin_zstd=$(usex static-libs $(usex zstd) no)
@@ -207,7 +207,7 @@ src_configure() {
 		module_mbedtls_enabled=$(usex static-libs no $(usex mbedtls))
 		module_mono_enabled=$(usex static-libs no $(usex mono))
 		mono_glue=yes
-		module_opus_enabled=$(usex static-libs no $(usex opus))
+		#module_opus_enabled=$(usex static-libs no $(usex opus))
 		module_theora_enabled=$(usex static-libs no $(usex theora))
 		module_vorbis_enabled=$(usex static-libs no $(usex vorbis))
 		module_webp_enabled=$(usex static-libs no $(usex webp))
