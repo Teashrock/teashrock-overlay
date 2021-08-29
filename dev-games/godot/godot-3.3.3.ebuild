@@ -131,7 +131,7 @@ src_configure() {
 		builtin_libogg=$(usex static-libs $(usex ogg) no)
 		builtin_libpng=$(usex static-libs $(usex png) no)
 		builtin_libtheora=$(usex static-libs $(usex theora) no)
-		builtin_libvorbis=$(usex static-libs $(usex vorbis) no)
+		builtin_libvorbis=no
 		builtin_libvpx=$(usex static-libs $(usex vpx) no)
 		builtin_libwebp=$(usex static-libs $(usex webp) no)
 		builtin_mbedtls=$(usex static-libs $(usex mbedtls) no)
@@ -142,7 +142,6 @@ src_configure() {
 		builtin_zstd=$(usex static-libs $(usex zstd) no)
 		module_bullet_enabled=$(usex static-libs no $(usex bullet))
 		module_enet_enabled=$(usex static-libs no $(usex enet))
-		#module_embree_enabled=$(usex static-libs no $(usex embree))
 		module_ogg_enabled=$(usex static-libs no $(usex ogg))
 		module_png_enabled=$(usex static-libs no $(usex png))
 		module_vpx_enabled=$(usex static-libs no $(usex vpx))
@@ -157,7 +156,7 @@ src_configure() {
 		mono_glue=no
 		module_opus_enabled=$(usex opus)
 		module_theora_enabled=$(usex static-libs no $(usex theora))
-		module_vorbis_enabled=$(usex static-libs no $(usex vorbis))
+		module_vorbis_enabled=$(usex vorbis)
 		module_webp_enabled=$(usex static-libs no $(usex webp))
 		platform=$(usex X x11 server)
 		pulseaudio=$(usex pulseaudio)
@@ -183,7 +182,7 @@ src_configure() {
 		builtin_libogg=$(usex static-libs $(usex ogg) no)
 		builtin_libpng=$(usex static-libs $(usex png) no)
 		builtin_libtheora=$(usex static-libs $(usex theora) no)
-		builtin_libvorbis=$(usex static-libs $(usex vorbis) no)
+		builtin_libvorbis=no
 		builtin_libvpx=$(usex static-libs $(usex vpx) no)
 		builtin_libwebp=$(usex static-libs $(usex webp) no)
 		builtin_mbedtls=$(usex static-libs $(usex mbedtls) no)
@@ -209,7 +208,7 @@ src_configure() {
 		mono_glue=yes
 		module_opus_enabled=$(usex opus)
 		module_theora_enabled=$(usex static-libs no $(usex theora))
-		module_vorbis_enabled=$(usex static-libs no $(usex vorbis))
+		module_vorbis_enabled=$(usex vorbis)
 		module_webp_enabled=$(usex static-libs no $(usex webp))
 		platform=$(usex X x11 server)
 		pulseaudio=$(usex pulseaudio)
