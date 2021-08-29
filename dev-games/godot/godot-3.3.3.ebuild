@@ -155,7 +155,7 @@ src_configure() {
 		module_mbedtls_enabled=$(usex static-libs no $(usex mbedtls))
 		module_mono_enabled=$(usex static-libs no $(usex mono))
 		mono_glue=no
-		#module_opus_enabled=$(usex static-libs no $(usex opus))
+		module_opus_enabled=$(usex opus)
 		module_theora_enabled=$(usex static-libs no $(usex theora))
 		module_vorbis_enabled=$(usex static-libs no $(usex vorbis))
 		module_webp_enabled=$(usex static-libs no $(usex webp))
@@ -207,7 +207,7 @@ src_configure() {
 		module_mbedtls_enabled=$(usex static-libs no $(usex mbedtls))
 		module_mono_enabled=$(usex static-libs no $(usex mono))
 		mono_glue=yes
-		#module_opus_enabled=$(usex static-libs no $(usex opus))
+		module_opus_enabled=$(usex opus)
 		module_theora_enabled=$(usex static-libs no $(usex theora))
 		module_vorbis_enabled=$(usex static-libs no $(usex vorbis))
 		module_webp_enabled=$(usex static-libs no $(usex webp))
