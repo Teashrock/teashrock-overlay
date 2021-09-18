@@ -3,6 +3,30 @@
 
 EAPI=8
 
+CRATES="
+whoami-1.1
+serde_derive-1.0
+serde-1.0
+serde_json-1.0
+cfg-if-1.0
+lazy_static-1.4
+sha2-0.9
+repng-0.2
+libc-0.2
+https://github.com/open-trade/parity-tokio-ipc
+flexi-logger-0.17
+runas-0.2
+https://github.com/open-trade/magnum-opus
+dasp-0.11
+rubato-0.8
+samplerate-0.2
+async-trait-0.1
+crc32-fast-1.2
+uuid-0.8
+clap-2.33
+rpassword-5.0
+"
+
 inherit cargo
 
 DESCRIPTION="Yet another remote access client."
@@ -49,7 +73,19 @@ src_configure()
 
 src_compile()
 {
+	export GCC_INCLUDE=/usr/lib/gcc/x86_64-pc-linux-gnu/10.3.0/include
+	export VCPKG_ROOT=${WORKDIR}/vcpkg
+	export LIBCLANG_PATH=/usr/lib/llvm/12/lib64
+	git clone https://github.com/microsoft/vcpkg
+	cd vcpkg
+	git checkout 134505003bb46e20fbace51ccfb69243fbbc5f82
+	cd ..
+	vcpkg/bootstrap-vcpkg.sh
+	vcpkg/vcpkg install libvpx libyuv opus
 	cd rustdesk || die
+	mkdir -p target/debug
+	wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
+	mv libsciter-gtk.so target/debug
 	cargo_src_compile
 }
 
