@@ -59,7 +59,7 @@ BDEPEND="
 
 src_unpack()
 {
-	git-r3_src_unpack
+	git-r3_src_unpack ${WORKDIR}/vcpkg
 	cd ${WORKDIR}/vcpkg
 	git checkout 134505003bb46e20fbace51ccfb69243fbbc5f82
 	cd ..
