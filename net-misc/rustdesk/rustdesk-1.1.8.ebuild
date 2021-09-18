@@ -66,6 +66,7 @@ src_unpack()
 	vcpkg/bootstrap-vcpkg.sh
 	vcpkg/vcpkg install libvpx libyuv opus
 	cargo_src_unpack
+	cd rustdesk-${PV} || die
 	eapply "${FILESDIR}/${PATCHES}"
 	eapply_user
 }
@@ -80,7 +81,7 @@ src_compile()
 	export GCC_INCLUDE=/usr/lib/gcc/x86_64-pc-linux-gnu/10.3.0/include
 	export VCPKG_ROOT=${WORKDIR}/vcpkg
 	export LIBCLANG_PATH=/usr/lib/llvm/12/lib64
-	cd rustdesk || die
+	cd rustdesk-${PV} || die
 	if use debug; then
 		BIN="debug"
 	else
