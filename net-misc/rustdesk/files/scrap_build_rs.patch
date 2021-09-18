@@ -1,0 +1,12 @@
+--- a/libs/scrap/build.rs	2021-09-18 06:51:36.700000000 -0000
++++ b/libs/scrap/build.rs	2021-09-18 06:51:24.570000000 -0000
+@@ -37,7 +37,8 @@
+     );
+     let include = path.join("include");
+     println!("{}", format!("cargo:include={}", include.to_str().unwrap()));
+-    vec![include]
++    let gcc_include = std::env::var("GCC_INCLUDE").unwrap().into();
++    vec![include, gcc_include]
+ }
+ 
+ fn generate_bindings(
