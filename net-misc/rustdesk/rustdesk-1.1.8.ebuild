@@ -57,6 +57,14 @@ BDEPEND="
 
 src_unpack()
 {
+	EGIT_REPO_URI="https://github.com/microsoft/vcpkg.git"
+	inherit git-r3
+	git-r3_src_unpack
+	cd vcpkg
+	git checkout 134505003bb46e20fbace51ccfb69243fbbc5f82
+	cd ..
+	vcpkg/bootstrap-vcpkg.sh
+	vcpkg/vcpkg install libvpx libyuv opus
 	cargo_src_unpack
 }
 
@@ -76,14 +84,6 @@ src_compile()
 	export GCC_INCLUDE=/usr/lib/gcc/x86_64-pc-linux-gnu/10.3.0/include
 	export VCPKG_ROOT=${WORKDIR}/vcpkg
 	export LIBCLANG_PATH=/usr/lib/llvm/12/lib64
-	EGIT_REPO_URI="https://github.com/microsoft/vcpkg.git"
-	inherit git-r3
-	git-r3_src_unpack
-	cd vcpkg
-	git checkout 134505003bb46e20fbace51ccfb69243fbbc5f82
-	cd ..
-	vcpkg/bootstrap-vcpkg.sh
-	vcpkg/vcpkg install libvpx libyuv opus
 	cd rustdesk || die
 	if use debug; then
 		BIN="debug"
