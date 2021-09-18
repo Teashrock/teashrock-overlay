@@ -32,7 +32,7 @@ inherit cargo
 DESCRIPTION="Yet another remote access client."
 HOMEPAGE="https://rustdesk.com"
 SRC_URI="https://github.com/rustdesk/rustdesk/archive/refs/tags/${PV}.tar.gz"
-PATCHES=["scrap_build_rs.patch"]
+PATCHES="scrap_build_rs.patch"
 
 LICENSE="GPLv3"
 SLOT="0"
@@ -62,7 +62,7 @@ src_unpack()
 
 src_prepare()
 {
-	eapply "$PATCHES[@]"
+	eapply "$PATCHES"
 	eapply_user
 }
 
