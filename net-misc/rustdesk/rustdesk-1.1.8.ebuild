@@ -69,6 +69,7 @@ src_unpack()
 	cd rustdesk-${PV} || die
 	eapply "${FILESDIR}/${PATCHES}"
 	eapply_user
+	cd ..
 }
 
 src_configure()
