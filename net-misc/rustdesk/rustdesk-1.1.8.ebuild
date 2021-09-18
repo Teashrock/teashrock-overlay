@@ -70,10 +70,6 @@ src_unpack()
 	eapply_user
 }
 
-src_prepare()
-{
-}
-
 src_configure()
 {
 	cargo_src_configure
