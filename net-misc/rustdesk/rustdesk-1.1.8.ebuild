@@ -76,7 +76,7 @@ src_compile()
 	export GCC_INCLUDE=/usr/lib/gcc/x86_64-pc-linux-gnu/10.3.0/include
 	export VCPKG_ROOT=${WORKDIR}/vcpkg
 	export LIBCLANG_PATH=/usr/lib/llvm/12/lib64
-	git clone https://github.com/microsoft/vcpkg
+	git clone https://github.com/microsoft/vcpkg.git
 	cd vcpkg
 	git checkout 134505003bb46e20fbace51ccfb69243fbbc5f82
 	cd ..
