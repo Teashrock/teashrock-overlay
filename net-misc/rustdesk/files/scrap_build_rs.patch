@@ -1,5 +1,5 @@
---- a//var/tmp/portage/net-misc/rustdesk-1.1.8/rustdesk-1.1.8/libs/scrap/build.rs	2021-09-18 06:51:36.700000000 -0000
-+++ b//var/tmp/portage/net-misc/rustdesk-1.1.8/rustdesk-1.1.8/libs/scrap/build.rs	2021-09-18 06:51:24.570000000 -0000
+--- a/libs/scrap/build.rs	2021-09-18 06:51:36.700000000 -0000
++++ b/libs/scrap/build.rs	2021-09-18 06:51:24.570000000 -0000
 @@ -37,7 +37,8 @@
      );
      let include = path.join("include");
