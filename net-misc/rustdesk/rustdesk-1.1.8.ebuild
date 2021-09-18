@@ -66,12 +66,12 @@ src_unpack()
 	vcpkg/bootstrap-vcpkg.sh
 	vcpkg/vcpkg install libvpx libyuv opus
 	cargo_src_unpack
+	eapply "${FILESDIR}/${PATCHES}"
+	eapply_user
 }
 
 src_prepare()
 {
-	eapply "${FILESDIR}/${PATCHES}"
-	eapply_user
 }
 
 src_configure()
