@@ -68,7 +68,6 @@ src_unpack()
 	${WORKDIR}/vcpkg/vcpkg install libvpx libyuv opus
 	eapply "${FILESDIR}/${PATCHES}"
 	eapply_user
-	cd ..
 }
 
 src_configure()
