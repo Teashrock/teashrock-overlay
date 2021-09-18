@@ -83,9 +83,14 @@ src_compile()
 	vcpkg/bootstrap-vcpkg.sh
 	vcpkg/vcpkg install libvpx libyuv opus
 	cd rustdesk || die
-	mkdir -p target/debug
+	if use debug then
+		BIN="debug"
+	else
+		BIN="release"
+	fi
+	mkdir -p target/${BIN}
 	wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
-	mv libsciter-gtk.so target/debug
+	mv libsciter-gtk.so target/${BIN}
 	cargo_src_compile
 }
 
