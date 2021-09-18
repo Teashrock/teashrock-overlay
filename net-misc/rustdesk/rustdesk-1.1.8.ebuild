@@ -62,7 +62,7 @@ src_unpack()
 
 src_prepare()
 {
-	eapply "$PATCHES"
+	eapply "${FILESDIR}/${PATCHES}"
 	eapply_user
 }
 
