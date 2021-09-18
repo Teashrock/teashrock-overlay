@@ -59,15 +59,19 @@ BDEPEND="
 	sys-devel/clang
 "
 
+src_prepare()
+{
+	${WORKDIR}/vcpkg/bootstrap-vcpkg.sh
+	${WORKDIR}/vcpkg/vcpkg install libvpx libyuv opus
+	eapply "${FILESDIR}/${PATCHES}"
+	eapply_user
+}
+
 src_unpack()
 {
 	cargo_src_unpack
 	cd ${WORKDIR}/rustdesk-${PV} || die
 	git-r3_src_unpack
-	${WORKDIR}/vcpkg/bootstrap-vcpkg.sh
-	${WORKDIR}/vcpkg/vcpkg install libvpx libyuv opus
-	eapply "${FILESDIR}/${PATCHES}"
-	eapply_user
 }
 
 src_configure()
