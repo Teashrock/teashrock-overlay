@@ -60,13 +60,13 @@ BDEPEND="
 src_unpack()
 {
 	git-r3_src_unpack
-	cd vcpkg
+	cd ${WORKDIR}/vcpkg
 	git checkout 134505003bb46e20fbace51ccfb69243fbbc5f82
 	cd ..
-	vcpkg/bootstrap-vcpkg.sh
-	vcpkg/vcpkg install libvpx libyuv opus
+	${WORKDIR}/vcpkg/bootstrap-vcpkg.sh
+	${WORKDIR}/vcpkg/vcpkg install libvpx libyuv opus
 	cargo_src_unpack
-	cd rustdesk-${PV} || die
+	cd ${WORKDIR}/rustdesk-${PV} || die
 	eapply "${FILESDIR}/${PATCHES}"
 	eapply_user
 	cd ..
