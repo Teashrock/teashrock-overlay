@@ -35,6 +35,7 @@ HOMEPAGE="https://rustdesk.com"
 SRC_URI="https://github.com/rustdesk/rustdesk/archive/refs/tags/${PV}.tar.gz"
 EGIT_REPO_URI="https://github.com/microsoft/vcpkg.git"
 PATCHES="scrap_build_rs.patch"
+EGIT3_STORE_DIR="${WORKDIR}"
 
 LICENSE="GPLv3"
 SLOT="0"
@@ -59,7 +60,7 @@ BDEPEND="
 
 src_unpack()
 {
-	git-r3_src_unpack "https://github.com/microsoft/vcpkg.git" ${WORKDIR}/vcpkg
+	git-r3_src_unpack
 	cd ${WORKDIR}/vcpkg
 	git checkout 134505003bb46e20fbace51ccfb69243fbbc5f82
 	cd ..
