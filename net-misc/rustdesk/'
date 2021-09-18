@@ -83,7 +83,7 @@ src_compile()
 	vcpkg/bootstrap-vcpkg.sh
 	vcpkg/vcpkg install libvpx libyuv opus
 	cd rustdesk || die
-	if use debug; then
+	if use debug then;
 		BIN="debug"
 	else
 		BIN="release"
