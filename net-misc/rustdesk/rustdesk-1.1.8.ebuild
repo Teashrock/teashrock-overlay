@@ -28,10 +28,12 @@ rpassword-5.0
 "
 
 inherit cargo
+inherit git-r3
 
 DESCRIPTION="Yet another remote access client."
 HOMEPAGE="https://rustdesk.com"
 SRC_URI="https://github.com/rustdesk/rustdesk/archive/refs/tags/${PV}.tar.gz"
+EGIT_REPO_URI="https://github.com/microsoft/vcpkg.git"
 PATCHES="scrap_build_rs.patch"
 
 LICENSE="GPLv3"
@@ -57,8 +59,6 @@ BDEPEND="
 
 src_unpack()
 {
-	EGIT_REPO_URI="https://github.com/microsoft/vcpkg.git"
-	inherit git-r3
 	git-r3_src_unpack
 	cd vcpkg
 	git checkout 134505003bb46e20fbace51ccfb69243fbbc5f82
