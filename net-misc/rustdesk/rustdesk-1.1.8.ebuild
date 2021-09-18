@@ -35,7 +35,7 @@ HOMEPAGE="https://rustdesk.com"
 SRC_URI="https://github.com/rustdesk/rustdesk/archive/refs/tags/${PV}.tar.gz"
 EGIT_REPO_URI="https://github.com/microsoft/vcpkg.git"
 PATCHES="scrap_build_rs.patch"
-EGIT3_STORE_DIR="${WORKDIR}"
+EGIT3_STORE_DIR="${WORKDIR}/vcpkg"
 
 LICENSE="GPLv3"
 SLOT="0"
